@@ -1,0 +1,56 @@
+
+<div id="wrapper">
+  <!--start of sidebar-->
+  <div id="sidebar-wrapper">
+    <ul class = "sidebar-nav">
+      <li class="sidebar-brand"><a href="#title-box"><img class="img-responsive img-circle" src="http://placekitten.com/250/250" alt="Chania"></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Location</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Cusine</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>  Price</a></li>
+      <li><a href="#"><span></span></a></li>
+    </ul>
+  </div>
+  <!--end sidebar-->
+<div class="restaurants-search">
+    <%= link_to "New Restaurant", new_restaurant_path %>
+
+  <%= form_tag restaurants_path, :method => 'get' do %>
+    <br>
+    <p>Search Restaurants</p>
+    <p>Name:
+      <%= text_field_tag :search, params[:search] %> </p>
+    <p>Location:
+      <%= text_field_tag :location, params[:location] %></p>
+    <p>Cuisine:
+      <%= text_field_tag :cuisine, params[:cuisine] %></p>
+    <p>Price Range:
+      <%= radio_button_tag :price, 1, params[:price] == 1 ? true : false %>
+      <%= label_tag(:price, "$") %>
+      <%= radio_button_tag :price, 2, params[:price] == 2 ? true : false %>
+      <%= label_tag(:price, "$$") %>
+      <%= radio_button_tag :price, 3, params[:price] == 3 ? true : false %>
+      <%= label_tag(:price, "$$$") %>
+      <%= radio_button_tag :price, 4, params[:price] == 4 ? true : false %>
+      <%= label_tag(:price, "$$$$") %>
+    </p>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
+  <% @found_restaurants.each do |restaurant| %>
+    <div class="container-fluid">
+      <div class="row restaurant-box">
+        <div class="col-xs-3">
+          <% if restaurant.pictures.first.present? %>
+            <img src="<%= restaurant.pictures.first.url %>" alt="" class="img-responsive"/>
+          <% else %>
+            <img src="https://placekitten.com/200/200" alt="" class="img-responsive"/>
+          <% end %>
+        </div>
+        <div class="col-xs-9">
+          <h2><%= link_to "#{restaurant.name}", restaurant %></h2>
+          <p><%= restaurant.location.capitalize %>, <%= restaurant.cuisine.capitalize %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

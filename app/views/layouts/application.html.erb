@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seatyourself</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!--start of navbar-->
+  <div class="wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://localhost:3000">Seats Table</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><a href="#">Hi <%= current_user.user_name %></a></li>
+            <li><a href="/log_in/current" data-method="delete">Log out</a></li>
+          <% else %>
+            <li><a href="http://localhost:3000/users/new">Sign Up</a></li>
+            <li><a href="http://localhost:3000/log_in">Log In</a></li>
+          <% end %>
+            <li>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="button" class="btn btn-primary btn-sm outline">Search</button>
+              </form>
+            </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!--end of nav bar -->
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+
+<!-- start of jumbotron -->
+<div class="jumbotron">
+  <div class="jumbotron_text">
+    <h1>Hungry?</h1>
+    <a href="/restaurants"><button type="button" class="btn btn-warning btn-lg">MAKE RESERVATION</button></a>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4">
+      <a href="restaurants/<%= @restaurants.first.id%>"><img src="<%= @restaurants.first.pictures.first.url %>" class="img-thumbnail center-block"></a>
+    </div>
+    <div class="col-xs-4">
+      <a href="restaurants/<%= @restaurants.fifth.id%>"><img src="<%= @restaurants.fifth.pictures.first.url %>" class="img-thumbnail center-block"></a>
+    </div>
+    <div class="col-xs-4">
+      <a href="restaurants/<%= @restaurants.second.id%>"><img src="<%= @restaurants.second.pictures.first.url %>" class="img-thumbnail center-block"></a>
+    </div>
+  </div>
+</div>

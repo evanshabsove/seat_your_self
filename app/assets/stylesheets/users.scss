@@ -1,0 +1,58 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container-table {
+  display: table;
+  height: 90%;
+  background-color: transparent;
+}
+
+.vertical-center-row {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.field, .actions, .title-text{
+  margin-left: 20px;
+}
+
+.field-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.actions {
+  margin-top: 40px;
+}
+
+hr.feature-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-top: 1px solid #BFB5AF;
+}
+
+.title-text {
+  margin-bottom: 38px;
+}
+
+.log-in-btn {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  border-radius: 6px;
+  border: 1px solid;
+  padding: 10px 19px;
+  width: 180px;
+  text-align: center;
+}
+
+.input-value {
+  border-radius: 3px;
+  height: 30px;
+  width: 200px;
+  border-color: #F5F5F5;
+}
+
+input.form-control {
+  width: 25%;
+}

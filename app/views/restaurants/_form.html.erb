@@ -1,0 +1,78 @@
+
+<%= form_for @restaurant do |f| %>
+
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <p class="field-title">
+      <%= f.label :name, "What is the Name of your restaurant? " %><br>
+      <%= f.text_field :name, :class => "form-control" %>
+    </p>
+    <p class="field-title">
+      <%= f.label :max_seats, "What is the maximum number of seats in your restaurant? " %><br>
+      <%= f.number_field :max_seats, :class => "form-control"%>
+    </p>
+    <p class="field-title">
+      <%= f.label :location, "Where is your restaurant located? " %><br>
+      <%= f.radio_button(:location, "edmonton") %>
+      <%= f.label(:location_edmonton, "Edmonton") %>
+      <%= f.radio_button(:location, "montreal") %>
+      <%= f.label(:location_montreal, "Montreal")%>
+      <%= f.radio_button(:location, "ottawa") %>
+      <%= f.label(:location_ottawa, "Ottawa") %>
+      <%= f.radio_button(:location, "vancouver") %>
+      <%= f.label(:location_vancouver, "Vancouver")%>
+      <%= f.radio_button(:location, "vancouver") %>
+      <%= f.label(:location_vancouver, "Vancouver")%>
+
+    </p>
+    <p class="field-title">
+      <%= f.label :cuisine, "What type of food does your restaurant serve? " %><br>
+      <%= f.radio_button(:cuisine, "sandwich") %>
+      <%= f.label(:cuisine_sandwich, "Sandwiches") %>
+      <%= f.radio_button(:cuisine, "pizza") %>
+      <%= f.label(:cuisine_pizza, "Pizza") %>
+      <%= f.radio_button(:cuisine, "chinese") %>
+      <%= f.label(:cuisine_chinese, "Chinese") %>
+      <%= f.radio_button(:cuisine, "sushi") %>
+      <%= f.label(:cuisine_sushi, "Sushi") %>
+      <%= f.radio_button(:cuisine, "steak") %>
+      <%= f.label(:cuisine_steak, "Steak") %>
+      <%= f.radio_button(:cuisine, "cafe") %>
+      <%= f.label(:cuisine_cafe, "Cafe") %>
+    </p>
+
+    <p class="field-title">
+      <%= f.label :price, "What is the price range of your restaurant per diner? " %><br>
+      <%= f.radio_button(:price, 1) %>
+      <%= f.label(:price_1, "$") %>
+      <%= f.radio_button(:price, 2) %>
+      <%= f.label(:price_2, "$$") %>
+      <%= f.radio_button(:price, 3) %>
+      <%= f.label(:price_3, "$$$") %>
+      <%= f.radio_button(:price, 4) %>
+      <%= f.label(:price_4, "$$$$") %>
+    </p>
+
+    <p class="field-title">
+      <%= f.label :open_time, "What Time Does This Restaurant Open?: " %><br>
+      <%= f.time_field :open_time, :class => "form-control" %>
+    </p>
+    <p class="field-title">
+      <%= f.label :close_time, "What Time Does This Restaurant Close?: " %><br>
+      <%= f.time_field :close_time, :class => "form-control" %>
+    </p>
+  </div>
+
+
+  <%= f.submit 'Submit', :class => "submit-button" %>
+<% end %>

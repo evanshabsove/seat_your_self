@@ -1,0 +1,67 @@
+<br>
+<div class="container container-table">
+  <div class="row vertical-center-row">
+    <div class="col-xs-12">
+      <div class="well">
+        <h1 class="title-text">Add A User</h1>
+        <hr class="feature-divider">
+        <%= form_for @user do |f| %>
+
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                 <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <div class="field-title">
+              <%= f.label :user_name, "Input Name: " %><br>
+              <%= f.text_field :user_name, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-title">
+              <%= f.label :email, "Input Email: " %><br>
+            </div>
+            <div class="form-group">
+              <%= f.email_field :email, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-title">
+              <%= f.label :phone, "Input Phone Number: " %><br>
+            </div>
+            <div class="form-group">
+              <%= f.phone_field :phone, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-title">
+              <%= f.label :password, "Input Password: " %><br>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-title">
+              <%= f.label :password_confirmation, "Confirm Password: " %><br>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit :class => "sign-in-btn"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
